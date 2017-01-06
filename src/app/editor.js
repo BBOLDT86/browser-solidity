@@ -132,6 +132,16 @@ function Editor (loadingFromGist, storage) {
   }
   this.getFiles = getFiles
 
+  // FIXME: merge this with the above
+  this.getFileNames = function () {
+    var files = this.getFiles()
+    var ret = []
+    for (var f in this.getFiles()) {
+      ret.push(utils.fileNameFromKey(files[f]))
+    }
+    return ret
+  }
+
   this.packageFiles = function () {
     var files = {}
     var filesArr = this.getFiles()

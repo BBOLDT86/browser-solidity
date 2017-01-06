@@ -244,7 +244,7 @@ var run = function () {
 
   function updateFiles () {
     var $filesEl = $('#files')
-    var files = editor.getFiles()
+    var files = editor.getFileNames()
 
     $filesEl.find('.file').remove()
     $('#output').empty()
@@ -263,8 +263,7 @@ var run = function () {
     reAdjust()
   }
 
-  function fileTabTemplate (key) {
-    var name = utils.fileNameFromKey(key)
+  function fileTabTemplate (name) {
     return $('<li class="file"><span class="name">' + name + '</span><span class="remove"><i class="fa fa-close"></i></span></li>')
   }
 
