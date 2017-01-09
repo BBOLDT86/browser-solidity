@@ -250,7 +250,7 @@ var run = function () {
     $('#output').empty()
 
     for (var f in files) {
-      $filesEl.append(fileTabTemplate(files[f]))
+      $filesEl.append($('<li class="file"><span class="name">' + files[f] + '</span><span class="remove"><i class="fa fa-close"></i></span></li>'))
     }
 
     if (editor.cacheFileIsPresent()) {
@@ -261,10 +261,6 @@ var run = function () {
     $('#input').toggle(editor.cacheFileIsPresent())
     $('#output').toggle(editor.cacheFileIsPresent())
     reAdjust()
-  }
-
-  function fileTabTemplate (name) {
-    return $('<li class="file"><span class="name">' + name + '</span><span class="remove"><i class="fa fa-close"></i></span></li>')
   }
 
   var $filesWrapper = $('.files-wrapper')
