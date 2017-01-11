@@ -45,7 +45,7 @@ var run = function () {
     for (var f in files) {
       var key = utils.fileKey(f)
       var content = files[f].content
-      storage.loadFile(key, content)
+      editor.replaceFileWithBackup(f, content)
     }
     editor.switchToFile(Object.keys(files)[0])
     updateFiles()

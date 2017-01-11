@@ -41,15 +41,6 @@ function Storage (updateFiles) {
     return Object.keys(window.localStorage).filter(function (item) { return item !== null && item !== undefined })
   }
 
-  this.loadFile = function (filename, content) {
-    if (this.exists(filename) && this.get(filename) !== content) {
-      var count = ''
-      while (this.exists(filename + count)) count = count - 1
-      this.rename(filename, filename + count)
-    }
-    this.set(filename, content)
-  }
-
   this.sync = function () {
     if (typeof chrome === 'undefined' || !chrome || !chrome.storage || !chrome.storage.sync) {
       return
