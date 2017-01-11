@@ -24,10 +24,6 @@ function Storage (updateFiles) {
     return this.get(EDITOR_SIZE_CACHE_KEY)
   }
 
-  this.getFileContent = function (key) {
-    return this.get(utils.fileKey(key))
-  }
-
   this.exists = function (key) {
     return !!this.get(key)
   }
